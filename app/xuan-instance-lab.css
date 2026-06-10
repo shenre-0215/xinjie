@@ -1,0 +1,634 @@
+.xuan-shell-main > .xuan-instance-lab {
+  width: min(92vw, 960px);
+}
+
+.xuan-instance-lab {
+  display: grid;
+  gap: 1rem;
+  color: var(--xuan-blue-ink);
+}
+
+.xuan-instance-lab {
+  --xuan-instance-panel: rgba(226, 234, 238, 0.78);
+  --xuan-instance-line: rgba(32, 63, 95, 0.34);
+  --xuan-instance-accent: rgba(216, 162, 95, 0.44);
+}
+
+.xuan-xuanbao-header {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid var(--xuan-instance-line);
+  outline: 1px solid rgba(244, 234, 216, 0.3);
+  outline-offset: -5px;
+  background:
+    linear-gradient(90deg, rgba(244, 234, 216, 0.22), rgba(244, 234, 216, 0.06)),
+    repeating-linear-gradient(90deg, rgba(32, 63, 95, 0.04) 0 1px, transparent 1px 42px),
+    var(--xuan-instance-panel);
+  box-shadow:
+    inset 0 0 0 1px rgba(244, 234, 216, 0.22),
+    inset 0 0 18px rgba(32, 63, 95, 0.035),
+    4px 4px 0 rgba(23, 38, 63, 0.12),
+    8px 8px 0 rgba(216, 162, 95, 0.04);
+  padding: 0.9rem 1rem;
+}
+
+.xuan-xuanbao-header::before {
+  content: "◆";
+  position: absolute;
+  right: 0.58rem;
+  top: 0.42rem;
+  color: rgba(216, 162, 95, 0.52);
+  font-family: var(--font-geist-mono), "Courier New", monospace;
+  font-size: 0.58rem;
+  pointer-events: none;
+}
+
+.xuan-xuanbao-header span,
+.xuan-factory-card header span,
+.xuan-formula-details summary {
+  color: rgba(123, 143, 168, 0.86);
+  font-family: "Courier New", monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+}
+
+.xuan-xuanbao-header h1 {
+  margin: 0.28rem 0 0;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 180ms ease;
+}
+
+.xuan-xuanbao-header h1:hover {
+  border-bottom-color: rgba(212, 165, 116, 0.5);
+}
+
+.xuan-title-edit {
+  margin-top: 0.28rem;
+  width: 100%;
+  border: 1px solid rgba(212, 165, 116, 0.6);
+  background: rgba(245, 240, 232, 0.3);
+  color: var(--xuan-blue-ink);
+  font: inherit;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  outline: none;
+  padding: 0.25rem 0.5rem;
+}
+
+.xuan-save-feedback {
+  color: rgba(212, 165, 116, 0.9);
+  font-family: "Courier New", monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  margin: 0.4rem 0 0;
+}
+
+.xuan-xuanbao-header strong {
+  border: 1px solid rgba(212, 165, 116, 0.46);
+  color: rgba(212, 165, 116, 0.92);
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  font-weight: 400;
+  padding: 0.45rem 0.6rem;
+}
+
+.xuan-xuanbao-layout {
+  display: grid;
+  grid-template-columns: minmax(230px, 0.78fr) minmax(0, 1.35fr);
+  gap: 1rem;
+}
+
+.xuan-xuanbao-side,
+.xuan-xuanbao-chat,
+.xuan-factory-card,
+.xuan-formula-details {
+  position: relative;
+  border: 1px solid var(--xuan-instance-line);
+  outline: 1px solid rgba(244, 234, 216, 0.3);
+  outline-offset: -5px;
+  background:
+    linear-gradient(135deg, rgba(244, 234, 216, 0.24), rgba(244, 234, 216, 0.08)),
+    repeating-linear-gradient(0deg, rgba(32, 63, 95, 0.032) 0 1px, transparent 1px 6px),
+    var(--xuan-instance-panel);
+  box-shadow:
+    inset 0 0 0 1px rgba(244, 234, 216, 0.24),
+    inset 0 0 22px rgba(32, 63, 95, 0.035),
+    5px 5px 0 rgba(23, 38, 63, 0.12),
+    9px 9px 0 rgba(216, 162, 95, 0.04);
+  padding: 1.25rem;
+}
+.xuan-xuanbao-side::before,
+.xuan-xuanbao-chat::before,
+.xuan-factory-card::before,
+.xuan-formula-details::before {
+  content: "◆";
+  position: absolute;
+  right: 0.58rem;
+  top: 0.42rem;
+  color: rgba(216, 162, 95, 0.5);
+  font-family: var(--font-geist-mono), "Courier New", monospace;
+  font-size: 0.58rem;
+  pointer-events: none;
+}
+
+.xuan-xuanbao-side {
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  gap: 1.25rem;
+  text-align: center;
+}
+
+.xuanbao-avatar-wrapper {
+  animation: xuanbao-float 5.8s ease-in-out infinite;
+}
+
+@keyframes xuanbao-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+.xuanbao-avatar-tilt {
+  transition: transform 0.22s ease-out;
+  transform:
+    perspective(300px)
+    rotateX(calc(var(--xuan-tilt-y, 0) * 1deg))
+    rotateY(calc(var(--xuan-tilt-x, 0) * 1deg));
+  will-change: transform;
+}
+
+.xuanbao-avatar {
+  display: grid;
+  place-items: center;
+  width: min(48vw, 190px);
+  aspect-ratio: 1;
+  border: 2px solid rgba(47, 77, 106, 0.26);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 50% 32%, rgba(245, 240, 232, 0.72), transparent 34%),
+    rgba(232, 236, 240, 0.22);
+  box-shadow:
+    6px 6px 0 rgba(47, 77, 106, 0.12),
+    inset 0 0 28px rgba(212, 165, 116, 0.12);
+  animation: xuanbao-breathe 4.2s ease-in-out infinite;
+  transition: border-color 180ms ease, opacity 180ms ease;
+}
+
+@keyframes xuanbao-breathe {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.035); opacity: 0.88; }
+}
+
+.xuanbao-avatar.is-explore {
+  border-color: rgba(212, 165, 116, 0.54);
+  transform: translateY(-2px);
+}
+
+.xuanbao-avatar.is-infer {
+  border-style: dashed;
+}
+
+.xuanbao-avatar.is-suspend {
+  opacity: 0.82;
+}
+
+.xuanbao-avatar.is-reacting {
+  animation:
+    xuanbao-breathe 4.2s ease-in-out infinite,
+    xuanbao-bounce 0.42s ease-out !important;
+}
+
+.xuanbao-avatar span,
+.xuanbao-avatar em {
+  color: rgba(123, 143, 168, 0.84);
+  font-family: "Courier New", monospace;
+  font-style: normal;
+  letter-spacing: 0.1em;
+}
+
+.xuanbao-avatar strong {
+  color: var(--xuan-blue-ink);
+  font-family: "Courier New", monospace;
+  font-size: clamp(2.2rem, 6vw, 3.7rem);
+  font-weight: 400;
+  line-height: 1;
+  animation: xuanbao-face-in 0.48s ease-out;
+}
+
+@keyframes xuanbao-face-in {
+  0%   { opacity: 0; transform: scale(0.6) translateY(-6px); }
+  100% { opacity: 1; transform: scale(1)   translateY(0); }
+}
+
+@keyframes xuanbao-bounce {
+  0%   { transform: scale(1); }
+  25%  { transform: scale(1.12); }
+  50%  { transform: scale(0.94); }
+  75%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.xuan-xuanbao-state span {
+  display: block;
+  color: rgba(212, 165, 116, 0.92);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  letter-spacing: 0.12em;
+}
+
+.xuan-xuanbao-state p,
+.xuan-xuanbao-state small {
+  color: rgba(47, 77, 106, 0.82);
+  line-height: 1.75;
+}
+
+.xuan-g-suspend-card {
+  width: 100%;
+  border: 1px solid rgba(47, 77, 106, 0.22);
+  background: rgba(232, 236, 240, 0.18);
+  padding: 0.72rem 0.85rem;
+  text-align: left;
+}
+
+.xuan-g-suspend-card .xuan-g-verdict {
+  display: inline-block;
+  font-family: "Courier New", monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid;
+  margin-bottom: 0.45rem;
+}
+
+.xuan-g-verdict.is-rational-wait {
+  color: rgba(212, 165, 116, 0.9);
+  border-color: rgba(212, 165, 116, 0.5);
+  background: rgba(212, 165, 116, 0.08);
+}
+
+.xuan-g-verdict.is-mild-wait {
+  color: rgba(212, 165, 116, 0.7);
+  border-color: rgba(212, 165, 116, 0.3);
+  background: rgba(212, 165, 116, 0.05);
+}
+
+.xuan-g-verdict.is-borderline {
+  color: rgba(123, 143, 168, 0.8);
+  border-color: rgba(123, 143, 168, 0.35);
+}
+
+.xuan-g-verdict.is-mild-act {
+  color: rgba(47, 77, 106, 0.78);
+  border-color: rgba(47, 77, 106, 0.3);
+  background: rgba(47, 77, 106, 0.05);
+}
+
+.xuan-g-verdict.is-should-act {
+  color: rgba(47, 77, 106, 0.9);
+  border-color: rgba(47, 77, 106, 0.5);
+  background: rgba(47, 77, 106, 0.08);
+}
+
+.xuan-g-suspend-card p {
+  color: rgba(47, 77, 106, 0.80);
+  font-size: 0.8rem;
+  line-height: 1.65;
+  margin: 0 0 0.55rem;
+}
+
+.xuan-g-bars {
+  display: flex;
+  gap: 0.55rem;
+}
+
+.xuan-g-bars span {
+  flex: 1;
+  font-family: "Courier New", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: rgba(123, 143, 168, 0.82);
+  background: rgba(47, 77, 106, 0.06);
+  padding: 0.3rem 0.45rem;
+  text-align: center;
+}
+
+.xuan-path-rewards {
+  width: 100%;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.xuan-path-row {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  border: 1px solid rgba(47, 77, 106, 0.16);
+  background: rgba(232, 236, 240, 0.12);
+  padding: 0.55rem 0.65rem;
+  transition: border-color 180ms ease, background 180ms ease;
+}
+
+.xuan-path-row.is-highlight {
+  border-color: rgba(212, 165, 116, 0.5);
+  background: rgba(212, 165, 116, 0.08);
+}
+
+.xuan-path-row.is-gold.is-highlight {
+  border-color: rgba(212, 165, 116, 0.55);
+  background: rgba(212, 165, 116, 0.1);
+}
+
+.xuan-path-row.is-blue.is-highlight {
+  border-color: rgba(47, 77, 106, 0.45);
+  background: rgba(47, 77, 106, 0.08);
+}
+
+.xuan-path-row.is-green.is-highlight {
+  border-color: rgba(123, 143, 168, 0.5);
+  background: rgba(123, 143, 168, 0.1);
+}
+
+.xuan-path-emoji {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.xuan-path-info {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.xuan-path-info strong {
+  color: var(--xuan-blue-ink);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+.xuan-path-info small {
+  color: rgba(123, 143, 168, 0.80);
+  font-family: "Courier New", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+.xuan-xuanbao-actions {
+  display: grid;
+  width: 100%;
+  gap: 0.55rem;
+}
+
+.xuan-xuanbao-actions button,
+.xuan-dialogue-input button,
+.xuan-factory-card button {
+  border: 1px solid rgba(32, 63, 95, 0.34);
+  background:
+    linear-gradient(180deg, rgba(244, 234, 216, 0.26), rgba(244, 234, 216, 0.1)),
+    rgba(226, 234, 238, 0.22);
+  box-shadow:
+    inset 0 0 0 1px rgba(244, 234, 216, 0.16),
+    2px 2px 0 rgba(23, 38, 63, 0.08);
+  color: var(--xuan-blue-ink);
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: 0.1em;
+  padding: 0.62rem 0.8rem;
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease, color 160ms ease, background 160ms ease;
+}
+
+.xuan-xuanbao-actions button:hover,
+.xuan-xuanbao-actions button:focus-visible,
+.xuan-xuanbao-actions button.is-active,
+.xuan-dialogue-input button:hover,
+.xuan-dialogue-input button:focus-visible,
+.xuan-factory-card button:hover,
+.xuan-factory-card button:focus-visible {
+  transform: translate(-1px, -1px);
+  border-color: rgba(216, 162, 95, 0.76);
+  background:
+    linear-gradient(180deg, rgba(244, 234, 216, 0.38), rgba(244, 234, 216, 0.16)),
+    rgba(226, 234, 238, 0.24);
+  box-shadow:
+    inset 0 0 0 1px rgba(244, 234, 216, 0.28),
+    3px 3px 0 rgba(23, 38, 63, 0.12),
+    0 0 14px rgba(216, 162, 95, 0.12);
+  color: var(--xuan-dawn-gold);
+  outline: none;
+}
+
+.xuan-dialogue-thread {
+  display: grid;
+  gap: 0.72rem;
+  max-height: min(46vh, 420px);
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.xuan-dialogue-thread p {
+  margin: 0;
+  border: 1px solid rgba(32, 63, 95, 0.16);
+  border-left: 2px solid rgba(216, 162, 95, 0.5);
+  background:
+    linear-gradient(90deg, rgba(244, 234, 216, 0.2), rgba(244, 234, 216, 0.06)),
+    rgba(226, 234, 238, 0.2);
+  box-shadow: inset 0 0 0 1px rgba(244, 234, 216, 0.12);
+  color: rgba(47, 77, 106, 0.92);
+  line-height: 1.75;
+  padding: 0.7rem 0.85rem;
+}
+
+.xuan-dialogue-thread p.is-user {
+  border-left-color: rgba(32, 63, 95, 0.5);
+  background:
+    linear-gradient(90deg, rgba(32, 63, 95, 0.08), rgba(244, 234, 216, 0.05)),
+    rgba(226, 234, 238, 0.18);
+}
+
+.xuan-dialogue-thread em {
+  display: block;
+  color: rgba(212, 165, 116, 0.86);
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  font-style: normal;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.25rem;
+}
+
+.xuan-dialogue-thread p.xuan-dialogue-empty {
+  border-left: 1px dashed rgba(123, 143, 168, 0.45);
+  background: transparent;
+  color: rgba(123, 143, 168, 0.88);
+  font-style: italic;
+  text-align: center;
+}
+
+.xuan-dialogue-thread p.xuan-dialogue-empty small {
+  display: block;
+  margin-top: 0.65rem;
+  color: rgba(212, 165, 116, 0.74);
+  font-family: KaiTi, "STKaiti", "Noto Serif SC", SimSun, serif;
+  font-size: 0.9em;
+  font-style: normal;
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+  animation: xuan-fade-in 2s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.xuan-worldview-hint {
+  display: block;
+  margin-top: 0.5rem;
+  color: rgba(212, 165, 116, 0.68);
+  font-family: KaiTi, "STKaiti", "Noto Serif SC", SimSun, serif;
+  font-size: 0.8rem;
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+
+.xuan-dialogue-input {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.xuan-dialogue-input textarea {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid rgba(32, 63, 95, 0.28);
+  background:
+    linear-gradient(180deg, rgba(244, 234, 216, 0.3), rgba(244, 234, 216, 0.1)),
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(32, 63, 95, 0.05) 31px 32px),
+    rgba(226, 234, 238, 0.32);
+  color: var(--xuan-blue-ink);
+  font: inherit;
+  line-height: 1.65;
+  min-height: 5.5rem;
+  outline: none;
+  padding: 0.8rem;
+}
+
+.xuan-dialogue-input textarea:focus {
+  border-color: rgba(212, 165, 116, 0.76);
+}
+
+.xuan-dialogue-input button {
+  justify-self: end;
+}
+
+.xuan-dialogue-input button:disabled {
+  cursor: wait;
+  opacity: 0.62;
+}
+
+.xuan-api-feedback {
+  margin: 0.6rem 0 0;
+  color: rgba(212, 165, 116, 0.88);
+  font-family: "Courier New", monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+}
+
+.xuan-factory-card {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.xuan-factory-card header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.xuan-factory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.65rem;
+}
+
+.xuan-factory-grid p {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+  border: 1px solid rgba(32, 63, 95, 0.18);
+  background:
+    linear-gradient(180deg, rgba(244, 234, 216, 0.2), rgba(244, 234, 216, 0.06)),
+    rgba(226, 234, 238, 0.2);
+  box-shadow: inset 0 0 0 1px rgba(244, 234, 216, 0.14);
+  color: rgba(47, 77, 106, 0.82);
+  line-height: 1.65;
+  padding: 0.72rem;
+}
+
+.xuan-factory-grid em {
+  color: rgba(212, 165, 116, 0.88);
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+}
+
+.xuan-factory-card > strong {
+  color: rgba(212, 165, 116, 0.9);
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+.xuan-formula-details {
+  color: rgba(47, 77, 106, 0.82);
+}
+
+.xuan-formula-details summary {
+  cursor: pointer;
+}
+
+.xuan-formula-details > div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.55rem;
+  margin-top: 0.85rem;
+}
+
+.xuan-formula-details p {
+  margin: 0;
+  border: 1px solid rgba(32, 63, 95, 0.18);
+  background:
+    linear-gradient(180deg, rgba(244, 234, 216, 0.18), rgba(244, 234, 216, 0.05)),
+    rgba(226, 234, 238, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(244, 234, 216, 0.12);
+  font-family: var(--font-geist-mono), "Courier New", monospace;
+  font-size: 0.78rem;
+  padding: 0.55rem;
+}
+
+.xuan-formula-logs {
+  grid-template-columns: 1fr !important;
+}
+
+@media (max-width: 860px) {
+  .xuan-xuanbao-header,
+  .xuan-xuanbao-layout,
+  .xuan-factory-grid,
+  .xuan-formula-details > div {
+    grid-template-columns: 1fr;
+  }
+
+  .xuan-factory-card header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .xuan-dialogue-thread {
+    max-height: none;
+  }
+}

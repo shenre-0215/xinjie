@@ -1,0 +1,305 @@
+/* ═══════════════════════════════════════════
+   Dashboard · 心解档案
+   ═══════════════════════════════════════════ */
+
+.xuan-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 16px 20px 32px;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── 悬置收成 ── */
+
+.xuan-dash-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--xuan-blue-ink);
+  margin: 0 0 2px;
+  cursor: default;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.xuan-dash-dev-hint {
+  font-size: 0.7rem;
+  color: var(--xuan-entity);
+  opacity: 0.4;
+}
+
+.xuan-dash-subtitle {
+  font-size: 0.85rem;
+  color: var(--xuan-entity);
+  margin: 0 0 14px;
+}
+
+.xuan-dash-stats {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.xuan-dash-stat {
+  flex: 1;
+  min-width: 90px;
+  background: rgba(245, 240, 232, 0.5);
+  border: 1px solid rgba(123, 143, 168, 0.15);
+  border-radius: 8px;
+  padding: 12px 14px;
+  text-align: center;
+}
+
+.xuan-dash-stat strong {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--xuan-blue-ink);
+  line-height: 1.1;
+}
+
+.xuan-dash-stat span {
+  font-size: 0.8rem;
+  color: var(--xuan-entity);
+}
+
+.xuan-dash-motto {
+  margin: 12px 0 0;
+  font-size: 0.85rem;
+  color: var(--xuan-dawn-gold);
+  font-style: italic;
+}
+
+/* ── 徽章 ── */
+
+.xuan-dash-badges h2 {
+  font-size: 0.95rem;
+  color: var(--xuan-blue-ink);
+  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.xuan-dash-badge-count {
+  font-size: 0.75rem;
+  color: var(--xuan-entity);
+  font-weight: 400;
+}
+
+.xuan-dash-badge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+}
+
+.xuan-dash-badge {
+  background: rgba(232, 236, 240, 0.45);
+  border: 1px solid rgba(123, 143, 168, 0.12);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  opacity: 0.45;
+  transition: opacity 0.3s;
+}
+
+.xuan-dash-badge.is-earned {
+  opacity: 1;
+  background: rgba(245, 240, 232, 0.55);
+  border-color: rgba(212, 165, 116, 0.25);
+}
+
+.xuan-dash-badge-emoji {
+  display: block;
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.xuan-dash-badge strong {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--xuan-blue-ink);
+  margin-bottom: 3px;
+}
+
+.xuan-dash-badge p {
+  margin: 0;
+  font-size: 0.7rem;
+  color: var(--xuan-entity);
+  line-height: 1.35;
+}
+
+/* ── 时间线 ── */
+
+.xuan-dash-timeline h2 {
+  font-size: 0.95rem;
+  color: var(--xuan-blue-ink);
+  margin: 0 0 10px;
+}
+
+.xuan-dash-empty {
+  font-size: 0.8rem;
+  color: var(--xuan-entity);
+  font-style: italic;
+}
+
+.xuan-dash-timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.xuan-dash-timeline-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.xuan-dash-timeline-row:nth-child(odd) {
+  background: rgba(232, 236, 240, 0.3);
+}
+
+.xuan-dash-timeline-dot {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+}
+
+.xuan-dash-timeline-label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.xuan-dash-timeline-link {
+  background: none;
+  border: none;
+  color: var(--xuan-blue-ink);
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  text-align: left;
+  text-decoration: underline;
+  text-decoration-color: rgba(47, 77, 106, 0.2);
+  text-underline-offset: 2px;
+}
+
+.xuan-dash-timeline-link:hover {
+  color: var(--xuan-dawn-gold);
+}
+
+.xuan-dash-timeline-kind {
+  flex-shrink: 0;
+  color: var(--xuan-entity);
+  font-size: 0.7rem;
+}
+
+.xuan-dash-timeline-time {
+  flex-shrink: 0;
+  color: var(--xuan-entity);
+  font-size: 0.7rem;
+  min-width: 48px;
+  text-align: right;
+}
+
+/* ── 开发者面板 ── */
+
+.xuan-dash-dev {
+  margin-top: 16px;
+  padding: 16px;
+  background: rgba(47, 77, 106, 0.06);
+  border: 1px dashed rgba(123, 143, 168, 0.3);
+  border-radius: 8px;
+}
+
+.xuan-dash-dev header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.xuan-dash-dev header h2 {
+  font-size: 0.8rem;
+  color: var(--xuan-blue-ink);
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.xuan-dash-dev header button {
+  background: none;
+  border: 1px solid rgba(123, 143, 168, 0.3);
+  color: var(--xuan-entity);
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.xuan-dash-dev-section {
+  margin-bottom: 14px;
+}
+
+.xuan-dash-dev-section h3 {
+  font-size: 0.75rem;
+  color: var(--xuan-blue-ink);
+  margin: 0 0 6px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid rgba(123, 143, 168, 0.12);
+}
+
+.xuan-dash-dev-table {
+  width: 100%;
+  font-size: 0.7rem;
+  border-collapse: collapse;
+}
+
+.xuan-dash-dev-table td {
+  padding: 2px 8px;
+  border-bottom: 1px solid rgba(123, 143, 168, 0.08);
+}
+
+.xuan-dash-dev-table td:first-child {
+  color: var(--xuan-blue-ink);
+}
+
+.xuan-dash-dev-table td:last-child {
+  text-align: right;
+  color: var(--xuan-entity);
+}
+
+.xuan-dash-dev-role {
+  margin-bottom: 8px;
+  font-size: 0.75rem;
+}
+
+.xuan-dash-dev-role strong {
+  color: var(--xuan-blue-ink);
+}
+
+.xuan-dash-dev-role p {
+  margin: 2px 0 0;
+  color: var(--xuan-entity);
+}
+
+.xuan-dash-dev-uncertainty {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px !important;
+}
+
+.xuan-dash-dev-uncertainty span {
+  background: rgba(123, 143, 168, 0.08);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 0.65rem;
+}

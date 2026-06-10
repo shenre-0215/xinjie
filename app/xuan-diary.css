@@ -1,0 +1,214 @@
+.xuan-shell-main > .xuan-diary {
+  width: min(92vw, 720px);
+}
+
+.xuan-diary {
+  display: grid;
+  gap: 1rem;
+  --xuan-diary-paper: rgba(226, 234, 238, 0.78);
+  --xuan-diary-line: rgba(32, 63, 95, 0.34);
+  --xuan-diary-accent: rgba(216, 162, 95, 0.42);
+  color: var(--xuan-blue-ink);
+}
+
+.xuan-diary-top-panel {
+  position: relative;
+  display: grid;
+  gap: 0.85rem;
+  border: 1px solid var(--xuan-diary-line);
+  outline: 1px solid rgba(244, 234, 216, 0.3);
+  outline-offset: -5px;
+  background:
+    linear-gradient(135deg, rgba(244, 234, 216, 0.24), rgba(244, 234, 216, 0.08)),
+    repeating-linear-gradient(0deg, rgba(32, 63, 95, 0.032) 0 1px, transparent 1px 6px),
+    var(--xuan-diary-paper);
+  box-shadow:
+    inset 0 0 0 1px rgba(244, 234, 216, 0.24),
+    inset 0 0 22px rgba(32, 63, 95, 0.035),
+    5px 5px 0 rgba(23, 38, 63, 0.12),
+    9px 9px 0 rgba(216, 162, 95, 0.04);
+  padding: 1rem;
+}
+
+.xuan-diary-top-panel::before {
+  content: "◆";
+  position: absolute;
+  right: 0.58rem;
+  top: 0.42rem;
+  color: rgba(216, 162, 95, 0.52);
+  font-family: var(--font-geist-mono), "Courier New", monospace;
+  font-size: 0.58rem;
+  pointer-events: none;
+}
+
+.xuan-diary-top-panel > .xuan-back-btn {
+  justify-self: start;
+  margin-bottom: 0;
+  border: 1px solid rgba(32, 63, 95, 0.34);
+  background:
+    linear-gradient(180deg, rgba(244, 234, 216, 0.26), rgba(244, 234, 216, 0.1)),
+    rgba(226, 234, 238, 0.22);
+  box-shadow:
+    inset 0 0 0 1px rgba(244, 234, 216, 0.16),
+    2px 2px 0 rgba(23, 38, 63, 0.08);
+  color: var(--xuan-blue-ink);
+}
+
+.xuan-diary-header {
+  position: relative;
+  padding: 0.15rem 0.15rem 0.25rem;
+}
+
+.xuan-diary-header span {
+  color: rgba(123, 143, 168, 0.78);
+  font-family: var(--font-geist-mono), "Courier New", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+}
+
+.xuan-diary-header h1 {
+  margin: 0.25rem 0;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+.xuan-diary-header p {
+  color: rgba(47, 77, 106, 0.74);
+  line-height: 1.78;
+  margin: 0;
+}
+
+.xuan-diary-entry,
+.xuan-diary-saved,
+.xuan-diary-item {
+  position: relative;
+  border: 1px solid var(--xuan-diary-line);
+  outline: 1px solid rgba(244, 234, 216, 0.3);
+  outline-offset: -5px;
+  background:
+    linear-gradient(135deg, rgba(244, 234, 216, 0.24), rgba(244, 234, 216, 0.08)),
+    repeating-linear-gradient(0deg, rgba(32, 63, 95, 0.03) 0 1px, transparent 1px 6px),
+    var(--xuan-diary-paper);
+  box-shadow:
+    inset 0 0 0 1px rgba(244, 234, 216, 0.24),
+    inset 0 0 22px rgba(32, 63, 95, 0.035),
+    5px 5px 0 rgba(23, 38, 63, 0.12),
+    9px 9px 0 rgba(216, 162, 95, 0.04);
+  padding: 1rem;
+}
+
+.xuan-diary-entry {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.xuan-diary-textarea {
+  width: 100%;
+  border: 1px solid rgba(32, 63, 95, 0.28);
+  background:
+    linear-gradient(180deg, rgba(244, 234, 216, 0.34), rgba(244, 234, 216, 0.12)),
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(32, 63, 95, 0.06) 31px 32px),
+    rgba(226, 234, 238, 0.36);
+  color: var(--xuan-blue-ink);
+  font: inherit;
+  line-height: 1.9;
+  outline: none;
+  padding: 0.9rem;
+  resize: vertical;
+}
+
+.xuan-diary-textarea:focus {
+  border-color: rgba(212, 165, 116, 0.76);
+}
+
+.xuan-diary-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.xuan-diary-actions button {
+  border: 1px solid rgba(32, 63, 95, 0.34);
+  background:
+    linear-gradient(180deg, rgba(244, 234, 216, 0.26), rgba(244, 234, 216, 0.1)),
+    rgba(226, 234, 238, 0.22);
+  box-shadow:
+    inset 0 0 0 1px rgba(244, 234, 216, 0.16),
+    2px 2px 0 rgba(23, 38, 63, 0.08);
+  color: var(--xuan-blue-ink);
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: 0.1em;
+  padding: 0.62rem 0.8rem;
+  transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease, transform 180ms ease, color 180ms ease;
+}
+
+.xuan-diary-actions button:hover,
+.xuan-diary-actions button:focus-visible {
+  border-color: rgba(216, 162, 95, 0.76);
+  background:
+    linear-gradient(180deg, rgba(244, 234, 216, 0.38), rgba(244, 234, 216, 0.16)),
+    rgba(226, 234, 238, 0.24);
+  box-shadow:
+    inset 0 0 0 1px rgba(244, 234, 216, 0.28),
+    3px 3px 0 rgba(23, 38, 63, 0.12),
+    0 0 14px rgba(216, 162, 95, 0.12);
+  color: var(--xuan-dawn-gold);
+  outline: none;
+  transform: translate(-1px, -1px);
+}
+
+.xuan-diary-actions button:disabled {
+  cursor: wait;
+  opacity: 0.62;
+}
+
+.xuan-diary-saved {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.xuan-diary-saved span {
+  color: rgba(123, 143, 168, 0.78);
+  font-family: var(--font-geist-mono), "Courier New", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.xuan-diary-saved p {
+  color: rgba(47, 77, 106, 0.82);
+  line-height: 1.8;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.xuan-diary-list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.xuan-diary-item {
+  display: grid;
+  gap: 0.3rem;
+  padding: 0.75rem 1rem;
+}
+
+.xuan-diary-item time {
+  color: rgba(123, 143, 168, 0.78);
+  font-family: var(--font-geist-mono), "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.xuan-diary-item p {
+  margin: 0;
+  color: rgba(47, 77, 106, 0.84);
+  line-height: 1.65;
+}
+
+.xuan-diary-item small {
+  color: rgba(212, 165, 116, 0.78);
+  font-family: "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+}

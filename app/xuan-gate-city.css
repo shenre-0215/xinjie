@@ -1,0 +1,554 @@
+.xuan-gate-city {
+  display: grid;
+  width: min(88vw, 780px);
+  gap: 1rem;
+  color: var(--xuan-blue-ink);
+}
+
+.xuan-gate-city-top {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.8rem;
+  border: 1px solid rgba(47, 77, 106, 0.16);
+  background:
+    linear-gradient(90deg, rgba(245, 240, 232, 0.18), rgba(245, 240, 232, 0.04)),
+    repeating-linear-gradient(90deg, rgba(47, 77, 106, 0.045) 0 1px, transparent 1px 42px);
+  box-shadow:
+    inset 0 0 0 1px rgba(245, 240, 232, 0.2),
+    3px 3px 0 rgba(47, 77, 106, 0.07);
+  padding: 0.62rem 0.72rem;
+}
+
+.xuan-gate-city-top strong {
+  justify-self: center;
+  font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+  font-weight: 400;
+  letter-spacing: 0.16em;
+}
+
+.xuan-gate-city-top div {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.xuan-gate-city button {
+  border: 1px solid rgba(47, 77, 106, 0.34);
+  background:
+    linear-gradient(180deg, rgba(245, 240, 232, 0.26), rgba(245, 240, 232, 0.1)),
+    rgba(232, 236, 240, 0.22);
+  box-shadow:
+    inset 0 0 0 1px rgba(245, 240, 232, 0.16),
+    2px 2px 0 rgba(47, 77, 106, 0.08);
+  color: var(--xuan-blue-ink);
+  cursor: pointer;
+  font-size: 0.86rem;
+  letter-spacing: 0.12em;
+  padding: 0.5rem 0.78rem;
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease, color 160ms ease;
+}
+
+.xuan-gate-city button:hover {
+  transform: translate(-1px, -1px);
+  border-color: rgba(212, 165, 116, 0.76);
+  background:
+    linear-gradient(180deg, rgba(245, 240, 232, 0.38), rgba(245, 240, 232, 0.16)),
+    rgba(232, 236, 240, 0.24);
+  box-shadow:
+    inset 0 0 0 1px rgba(245, 240, 232, 0.28),
+    3px 3px 0 rgba(47, 77, 106, 0.12),
+    0 0 14px rgba(212, 165, 116, 0.12);
+  color: var(--xuan-dawn-gold);
+}
+
+.xuan-gate-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.7rem;
+  justify-items: center;
+  padding: 0.6rem 0 0.3rem;
+}
+
+.xuan-gate-stats div {
+  display: grid;
+  gap: 0.2rem;
+  justify-items: center;
+}
+
+.xuan-gate-stats span,
+.xuan-gate-panel span {
+  color: rgba(123, 143, 168, 0.76);
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+}
+
+.xuan-gate-stats strong {
+  color: var(--xuan-blue-ink);
+  font-family: "Courier New", monospace;
+  font-size: clamp(1.1rem, 2.6vw, 1.45rem);
+  font-weight: 400;
+}
+
+.xuan-gate-panel {
+  position: relative;
+  border: 1px solid rgba(32, 63, 95, 0.48);
+  outline: 1px solid rgba(244, 234, 216, 0.42);
+  outline-offset: -5px;
+  background:
+    linear-gradient(135deg, rgba(245, 240, 232, 0.28), rgba(245, 240, 232, 0.07)),
+    repeating-linear-gradient(0deg, rgba(47, 77, 106, 0.035) 0 1px, transparent 1px 6px),
+    var(--xuan-panel-bg);
+  box-shadow:
+    inset 0 0 0 1px rgba(244, 234, 216, 0.32),
+    inset 0 0 24px rgba(32, 63, 95, 0.06),
+    5px 5px 0 rgba(23, 38, 63, 0.22),
+    9px 9px 0 rgba(216, 162, 95, 0.08);
+  padding: clamp(1rem, 2.2vw, 1.28rem);
+}
+
+.xuan-gate-panel::before {
+  content: "◆";
+  position: absolute;
+  right: 0.58rem;
+  top: 0.42rem;
+  color: rgba(212, 165, 116, 0.58);
+  font-family: var(--font-geist-mono), "Courier New", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  pointer-events: none;
+}
+
+.xuan-gate-daily,
+.xuan-gate-review {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+.xuan-gate-daily h1 {
+  margin: 0.42rem 0 0;
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+
+.xuan-gate-daily p,
+.xuan-gate-review p {
+  margin: 0.32rem 0 0;
+  color: rgba(47, 77, 106, 0.68);
+  line-height: 1.7;
+}
+
+.xuan-gate-actions {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.xuan-gate-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.xuan-gate-mini {
+  display: grid;
+  gap: 0.7rem;
+  justify-items: center;
+  text-align: center;
+}
+
+.xuan-gate-mini strong {
+  font-size: clamp(1.25rem, 2.8vw, 1.65rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+}
+
+.xuan-gate-review button {
+  white-space: nowrap;
+}
+
+.xuan-gate-status-strip {
+  display: grid;
+  grid-template-columns: 0.9fr 0.9fr 1.25fr 0.9fr;
+  gap: 0.58rem;
+  border: 1px solid rgba(244, 234, 216, 0.34);
+  outline: 1px solid rgba(32, 63, 95, 0.28);
+  outline-offset: -4px;
+  background:
+    linear-gradient(90deg, rgba(47, 77, 106, 0.08), rgba(47, 77, 106, 0.015)),
+    repeating-linear-gradient(90deg, rgba(245, 240, 232, 0.18) 0 1px, transparent 1px 26px),
+    rgba(232, 236, 240, 0.22);
+  box-shadow:
+    inset 0 0 18px rgba(32, 63, 95, 0.08),
+    4px 4px 0 rgba(23, 38, 63, 0.18),
+    0 0 18px rgba(244, 234, 216, 0.08);
+  padding: 0.72rem;
+}
+
+.xuan-gate-status-strip div {
+  position: relative;
+  display: grid;
+  gap: 0.16rem;
+  min-width: 0;
+  border: 1px solid rgba(32, 63, 95, 0.24);
+  background:
+    linear-gradient(180deg, rgba(244, 234, 216, 0.28), rgba(244, 234, 216, 0.1)),
+    rgba(226, 234, 238, 0.54);
+  box-shadow:
+    inset 2px 2px 0 rgba(47, 77, 106, 0.045),
+    inset -1px -1px 0 rgba(245, 240, 232, 0.22);
+  padding: 0.42rem 0.58rem;
+}
+
+.xuan-gate-status-strip div::after {
+  content: "";
+  position: absolute;
+  right: 0.36rem;
+  bottom: 0.32rem;
+  width: 18px;
+  height: 3px;
+  background: repeating-linear-gradient(90deg, rgba(212, 165, 116, 0.42) 0 2px, transparent 2px 5px);
+  pointer-events: none;
+}
+
+.xuan-gate-status-strip div:first-child {
+  border-left: 1px solid rgba(47, 77, 106, 0.14);
+}
+
+.xuan-gate-status-strip span {
+  color: rgba(123, 143, 168, 0.78);
+  font-family: var(--font-geist-mono), "Courier New", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.xuan-gate-status-strip strong {
+  color: var(--xuan-blue-ink);
+  font-family: var(--font-geist-mono), "Courier New", monospace;
+  font-size: clamp(1.06rem, 2.35vw, 1.52rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 10px rgba(245, 240, 232, 0.36);
+}
+
+.xuan-gate-main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(220px, 0.75fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.xuan-gate-daily {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr auto;
+  min-height: 292px;
+  overflow: hidden;
+  border-color: rgba(32, 63, 95, 0.58);
+  background:
+    radial-gradient(circle at 80% 24%, rgba(216, 162, 95, 0.24), transparent 26%),
+    radial-gradient(circle at 18% 88%, rgba(32, 63, 95, 0.12), transparent 34%),
+    linear-gradient(135deg, rgba(244, 234, 216, 0.46), rgba(244, 234, 216, 0.12)),
+    rgba(226, 234, 238, 0.76);
+}
+
+.xuan-gate-daily::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(47, 77, 106, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(47, 77, 106, 0.055) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(circle at 70% 35%, black, transparent 68%);
+  pointer-events: none;
+}
+
+.xuan-gate-daily::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent 0 5px, rgba(47, 77, 106, 0.035) 5px 6px);
+  mix-blend-mode: multiply;
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.xuan-gate-daily-copy {
+  position: relative;
+  z-index: 1;
+  align-self: center;
+}
+
+.xuan-gate-daily-copy span,
+.xuan-gate-diary-row span {
+  color: rgba(212, 165, 116, 0.86);
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+}
+
+.xuan-gate-daily h1 {
+  margin: 0.7rem 0 0;
+  max-width: 12em;
+  font-size: clamp(1.95rem, 4.8vw, 3.18rem);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 1.08;
+  text-shadow: 2px 2px 0 rgba(245, 240, 232, 0.42);
+}
+
+.xuan-gate-daily p,
+.xuan-gate-mini p {
+  margin: 0.5rem 0 0;
+  color: rgba(47, 77, 106, 0.66);
+  line-height: 1.7;
+}
+
+.xuan-gate-daily-orbit {
+  position: relative;
+  z-index: 1;
+  width: 112px;
+  height: 112px;
+  align-self: center;
+  justify-self: end;
+  border: 1px dashed rgba(47, 77, 106, 0.22);
+  border-radius: 50%;
+  animation: xuan-gate-orbit 18s linear infinite;
+}
+
+.xuan-gate-daily-orbit span,
+.xuan-gate-daily-orbit i,
+.xuan-gate-daily-orbit em {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+}
+
+.xuan-gate-daily-orbit span {
+  inset: 38px;
+  border: 1px solid rgba(212, 165, 116, 0.45);
+  background: rgba(245, 240, 232, 0.18);
+}
+
+.xuan-gate-daily-orbit i {
+  width: 8px;
+  height: 8px;
+  right: 11px;
+  top: 26px;
+  background: rgba(212, 165, 116, 0.62);
+}
+
+.xuan-gate-daily-orbit em {
+  width: 5px;
+  height: 5px;
+  left: 18px;
+  bottom: 28px;
+  background: rgba(47, 77, 106, 0.35);
+}
+
+@keyframes xuan-gate-orbit {
+  to { transform: rotate(360deg); }
+}
+
+.xuan-gate-actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  grid-column: 1 / -1;
+  gap: 0.55rem;
+  align-self: end;
+}
+
+.xuan-gate-actions button:first-child,
+.xuan-gate-diary-row button {
+  background: rgba(47, 77, 106, 0.12);
+  border-color: rgba(47, 77, 106, 0.4);
+}
+
+.xuan-gate-side-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.xuan-gate-mini {
+  position: relative;
+  display: grid;
+  gap: 0.55rem;
+  align-content: center;
+  justify-items: start;
+  min-height: 142px;
+  text-align: left;
+  overflow: hidden;
+}
+
+.xuan-gate-mini::after {
+  content: "";
+  position: absolute;
+  right: -30px;
+  bottom: -32px;
+  width: 104px;
+  height: 104px;
+  border: 1px dashed rgba(212, 165, 116, 0.28);
+  border-radius: 50%;
+  background:
+    repeating-conic-gradient(from 12deg, rgba(47, 77, 106, 0.11) 0deg 3deg, transparent 3deg 11deg),
+    radial-gradient(circle, transparent 0 54%, rgba(245, 240, 232, 0.18) 55% 58%, transparent 59%);
+  opacity: 0.9;
+}
+
+.xuan-gate-mini strong {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(1.34rem, 2.55vw, 1.72rem);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.xuan-gate-mini button,
+.xuan-gate-diary-row button {
+  justify-self: start;
+}
+
+.xuan-gate-diary-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  border-style: dashed;
+  background:
+    linear-gradient(90deg, rgba(245, 240, 232, 0.26), rgba(245, 240, 232, 0.05)),
+    repeating-linear-gradient(90deg, transparent 0 31px, rgba(212, 165, 116, 0.08) 31px 32px, transparent 32px 96px),
+    var(--xuan-panel-bg);
+}
+
+.xuan-gate-diary-row strong {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+
+.xuan-gate-utility {
+  display: grid;
+  width: min(82vw, 620px);
+  gap: 1rem;
+  border: 2px solid rgba(47, 77, 106, 0.28);
+  background: rgba(245, 240, 232, 0.16);
+  box-shadow: 5px 5px 0 rgba(47, 77, 106, 0.12);
+  color: var(--xuan-blue-ink);
+  padding: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+.xuan-gate-utility > span {
+  color: rgba(212, 165, 116, 0.82);
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+}
+
+.xuan-gate-utility h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 400;
+  letter-spacing: 0.18em;
+}
+
+.xuan-gate-utility p {
+  color: rgba(47, 77, 106, 0.72);
+  line-height: 1.8;
+}
+
+.xuan-gate-utility > button:last-child {
+  justify-self: start;
+}
+
+@media (max-width: 760px) {
+  .xuan-gate-city {
+    width: min(84vw, 560px);
+  }
+
+  .xuan-gate-city-top,
+  .xuan-gate-daily,
+  .xuan-gate-review,
+  .xuan-gate-grid,
+  .xuan-gate-stats,
+  .xuan-gate-status-strip,
+  .xuan-gate-main-grid,
+  .xuan-gate-diary-row {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .xuan-gate-status-strip div {
+    width: 100%;
+    border-left: 1px solid rgba(47, 77, 106, 0.14);
+    border-top: 1px solid rgba(47, 77, 106, 0.14);
+  }
+
+  .xuan-gate-status-strip div:first-child {
+    border-top: 1px solid rgba(47, 77, 106, 0.14);
+  }
+
+  .xuan-gate-daily-orbit {
+    justify-self: center;
+  }
+
+  .xuan-gate-actions {
+    justify-content: center;
+  }
+
+  .xuan-gate-mini,
+  .xuan-gate-diary-row button {
+    justify-items: center;
+    text-align: center;
+  }
+}
+
+/* ── 回访提醒 ── */
+
+.xuan-gate-checkback {
+  border-color: rgba(212, 165, 116, 0.5);
+  background: linear-gradient(135deg, rgba(212, 165, 116, 0.1), rgba(245, 240, 232, 0.22));
+  box-shadow: 5px 5px 0 rgba(212, 165, 116, 0.14);
+}
+
+.xuan-gate-checkback > span {
+  color: var(--xuan-dawn-gold);
+}
+
+.xuan-checkback-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.xuan-checkback-list button {
+  display: grid;
+  gap: 0.15rem;
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+}
+
+.xuan-checkback-list button strong {
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+.xuan-checkback-list button em {
+  color: rgba(47, 77, 106, 0.55);
+  font-size: 0.78rem;
+  font-style: normal;
+}
+
+.xuan-checkback-list button small {
+  color: rgba(47, 77, 106, 0.6);
+  font-size: 0.82rem;
+}
