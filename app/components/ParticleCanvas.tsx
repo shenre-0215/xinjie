@@ -12,7 +12,7 @@ type Particle = {
   color: string;
 };
 
-const PARTICLE_COUNT = 180;
+const PARTICLE_COUNT = 100;
 
 function createParticle(width: number, height: number): Particle {
   return {
@@ -101,15 +101,12 @@ export function ParticleCanvas() {
 
         context.globalAlpha = particle.opacity;
         context.fillStyle = particle.color;
-        context.shadowColor = particle.color;
-        context.shadowBlur = 10;
         context.fillRect(
           Math.round(particle.x),
           Math.round(particle.y),
           Math.round(particle.size),
           Math.round(particle.size),
         );
-        context.shadowBlur = 0;
       });
 
       context.globalAlpha = 1;
